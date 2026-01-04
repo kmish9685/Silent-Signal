@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SilentSignal</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container fade-in">
+        <header>
+            <div class="logo">SilentSignal</div>
+            <p class="subtitle">Anonymous Campus Feedback</p>
+        </header>
+
+        <main>
+            <div class="context-selector">
+                <label for="context">Where are you?</label>
+                <select id="context">
+                    <option value="Classroom">Classroom</option>
+                    <option value="Lab">Lab</option>
+                    <option value="Library">Library</option>
+                    <option value="Admin">Admin Office</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="signal-grid">
+                <button class="signal-btn" data-type="Confusing" style="--btn-color: #ff6b6b;">
+                    <span class="icon">?</span>
+                    <span class="label">Confusing</span>
+                </button>
+                <button class="signal-btn" data-type="Time-Wasting" style="--btn-color: #fca5a5;">
+                    <span class="icon">?</span>
+                    <span class="label">Time Wasting</span>
+                </button>
+                <button class="signal-btn" data-type="Blocked" style="--btn-color: #f87171;">
+                    <span class="icon">?</span>
+                    <span class="label">Blocked</span>
+                </button>
+                <button class="signal-btn" data-type="Smooth" style="--btn-color: #4ade80;">
+                    <span class="icon">?</span>
+                    <span class="label">Smooth</span>
+                </button>
+                <button class="signal-btn" data-type="Idea" style="--btn-color: #60a5fa;">
+                    <span class="icon">?</span>
+                    <span class="label">Idea</span>
+                </button>
+            </div>
+
+            <div class="optional-input">
+                <input type="text" id="message" placeholder="Optional: 5 words max..." maxlength="50">
+            </div>
+
+            <div id="status" class="status-msg"></div>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

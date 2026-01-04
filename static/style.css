@@ -1,0 +1,158 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #3b82f6;
+    --font-family: 'Inter', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centered for mobile app feel */
+}
+
+/* Container for Mobile view */
+.container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 480px;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+header { margin-bottom: 2rem; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.5px; }
+.subtitle { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.25rem; }
+
+/* Context Dropdown */
+.context-selector { margin-bottom: 1.5rem; text-align: left; }
+.context-selector label { display: block; color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.5rem; }
+select {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--bg-color);
+    border: 1px solid #334155;
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Signal Grid */
+.signal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.signal-grid .signal-btn:last-child {
+    grid-column: span 2;
+}
+
+.signal-btn {
+    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid transparent;
+}
+.signal-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--btn-color);
+}
+.signal-btn:active { transform: translateY(0); }
+.signal-btn .icon { font-size: 1.5rem; color: var(--btn-color); }
+.signal-btn .label { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
+
+/* Input */
+.optional-input input {
+    width: 100%;
+    padding: 0.75rem;
+    background: transparent;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+}
+.optional-input input:focus { border-color: var(--accent); outline: none; }
+
+/* Status */
+.status-msg { height: 20px; color: var(--accent); margin-top: 1rem; font-size: 0.9rem; }
+
+/* DASHBOARD STYLES */
+.dashboard-body {
+    display: block; /* Reset centering */
+    padding: 2rem;
+}
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.dash-header .badge {
+    background: #ef4444;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+.insight-card {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    color: #e2e8f0;
+}
+
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+.chart-card {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+/* Table */
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 1rem; border-bottom: 1px solid #334155; }
+th { color: var(--text-secondary); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+td { color: var(--text-primary); font-size: 0.9rem; }
+
+.fade-in { animation: fadeIn 0.5s ease; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

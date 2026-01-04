@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SilentSignal // Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <header class="dash-header">
+            <div class="logo">SilentSignal <span class="badge">LIVE</span></div>
+            <div class="last-updated" id="last-updated">Updating...</div>
+        </header>
+
+        <section class="insights-section">
+            <h2>AI Insights</h2>
+            <div id="ai-insights" class="insights-grid">
+                <!-- Injected via JS -->
+                <div class="insight-card loading">Generating insights...</div>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <div class="chart-card">
+                <h3>Signals by Type</h3>
+                <canvas id="typeChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Heatmap (Locations)</h3>
+                <canvas id="contextChart"></canvas>
+            </div>
+        </section>
+
+        <section class="recent-feed">
+            <h3>Recent Signals</h3>
+            <div class="table-wrapper">
+                <table id="signals-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Type</th>
+                            <th>Context</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
