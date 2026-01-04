@@ -23,11 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         body: JSON.stringify({ type, context, message })
                     });
 
-                    if (res.ok) {
+                    const data = await res.json();
+
+                    if (data.status === 'success') {
                         statusDiv.textContent = 'Signal Sent!';
-                        messageInput.value = ''; // Clear input
-                        setTimeout(() => statusDiv.textContent = '', 2000);
+                        statusDiv.style.color = 'var(--accent)';
+                        messageInput.value = '';
+                    } else if (data.status === 'warning') {
+                        statusDiv.textContent = data.message;
+                        statusDiv.style.color = '#f59e0b'; // Orange/Yellow
                     }
+                    setTimeout(() => statusDiv.textContent = '', 3000);
                 } catch (e) {
                     console.error(e);
                     statusDiv.textContent = 'Error sending signal.';
@@ -41,14 +47,24 @@ document.addEventListener('DOMContentLoaded', () => {
         let typeChart, contextChart;
 
         async function fetchStats() {
-            const res = await fetch('/api/stats');
-            const data = await res.json();
+            try {
+                const res = await fetch('/api/stats');
 
-            updateCharts(data);
-            updateInsights(data.insights);
-            updateTable(data.recent_signals);
+                if (res.status === 401 || res.status === 403 || res.url.includes('/login')) {
+                    window.location.href = '/login';
+                    return;
+                }
 
-            document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+                const data = await res.json();
+
+                updateCharts(data);
+                updateInsights(data.insights);
+                updateTable(data.recent_signals);
+
+                document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+            } catch (e) {
+                console.error("Failed to fetch stats", e);
+            }
         }
 
         function updateCharts(data) {
