@@ -7,7 +7,7 @@ import hashlib
 
 app = Flask(__name__)
 app.secret_key = 'super_secret_key_for_demo' # Required for session
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///signals.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///signals_v2.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['ADMIN_PASSWORD'] = 'admin' # Simple password for MVP
 
